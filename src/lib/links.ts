@@ -10,22 +10,7 @@ export const hrefLinks: hrefLinksProps[] = [
     path: "#home",
   },
   {
-    name: "Drives",
-    path: "#drives",
-  },
-  {
-    name: "Blog",
-    path: "/blog",
-  },
-  {
-    name: "FAQ",
-    path: "#faq",
-  },
-];
-
-export const actionLinks: actionLinksProps[] = [
-  {
-    name: "Contribute",
-    link: "https://forms.gle/kiTKDynKEXrhA7Ev6",
+    name: "Screens",
+    path: "#screens",
   },
 ];

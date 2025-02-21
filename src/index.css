@@ -73,7 +73,7 @@
 
 /* Body Styles */
 body {
-  background: var(--body-bg);
+  background: white;
   font-family: var(--font-name);
   line-height: 1.6;
 }
