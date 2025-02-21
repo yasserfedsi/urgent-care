@@ -28,7 +28,7 @@ export default function Footer() {
                   contact@urgentcare.com
                 </a>
               </li>
-              <li>Alger, Algeria</li>
+              <li>Algiers, Algeria</li>
             </ul>
           </div>
 
