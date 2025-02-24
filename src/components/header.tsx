@@ -1,4 +1,4 @@
-import { hrefLinks } from "../lib/links";
+import { hrefLinks } from "../lib/utils";
 import { useEffect, useRef, useState, useCallback } from "react";
 
 interface Link {

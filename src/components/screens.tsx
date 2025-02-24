@@ -1,23 +1,7 @@
 import { motion } from "framer-motion";
-
-// Import your screenshots
-import screenshot1 from "../assets/screenshots/screenshot1.png";
-import screenshot2 from "../assets/screenshots/screenshot2.png";
-import screenshot3 from "../assets/screenshots/screenshot3.png";
-import screenshot4 from "../assets/screenshots/screenshot4.png";
-import screenshot5 from "../assets/screenshots/screenshot5.png";
-import screenshot6 from "../assets/screenshots/screenshot6.png";
+import { screenshots } from "../lib/utils";
 
 export default function Screens() {
-  const screenshots = [
-    screenshot1,
-    screenshot2,
-    screenshot3,
-    screenshot4,
-    screenshot5,
-    screenshot6
-  ];
-
   return (
     <section id="screens" className="py-12 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
