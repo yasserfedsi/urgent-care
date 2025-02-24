@@ -1,10 +1,14 @@
 import { hrefLinks } from "../lib/links";
 import { useEffect, useRef, useState, useCallback } from "react";
 
+interface Link {
+  path: string;
+  name: string;
+}
+
 export default function Header() {
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerShrink, setHeaderShrink] = useState(false);
-  const [isOpened, setIsOpened] = useState(false);
 
   // Optimize event listener with useCallback
   const handleScroll = useCallback(() => {
@@ -16,15 +20,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Smooth scrolling
+  // Smooth scrolling with improved safety
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const targetAttr = e.currentTarget.getAttribute("href");
     if (targetAttr?.startsWith("#")) {
       e.preventDefault();
-      const location = document.querySelector(targetAttr) as HTMLElement;
+      const location = document.querySelector(targetAttr) as HTMLElement | null;
       if (location) {
-        window.scrollTo({ top: location.offsetTop - 80, behavior: "smooth" });
-        setIsOpened(false); // Close dropdown after click
+        const targetPosition = location.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: targetPosition - 80, behavior: "smooth" });
       }
     }
   };
@@ -51,7 +55,7 @@ export default function Header() {
 
         <nav className="hidden md:flex flex-1 justify-center">
           <ul className="flex items-center space-x-[3rem]">
-            {hrefLinks.map(({ path, name }, index) => (
+            {hrefLinks.map(({ path, name }: Link, index: number) => (
               <li
                 key={index}
                 className="transition-transform duration-300 hover:scale-110"
